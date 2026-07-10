@@ -11,7 +11,7 @@ bevy = { version = "0.19", features = ["webgl2"] }
 
 [profile.release]
 opt-level = "z"    # optimize for size, not speed — this is what actually shrinks the .wasm
-lto = true          # whole-program link-time optimization
-codegen-units = 1   # slower build, smaller/faster output
+lto = false         # whole-program link-time optimization
+codegen-units = 16   # slower build, smaller/faster output
 panic = "abort"     # drop unwinding tables — wasm32 doesn't need them here
 strip = true        # strip debug symbols from the final binary
