@@ -294,10 +294,10 @@ pub fn nitro_particle_update_system(
         transform.translation += particle.velocity * time.delta_secs();
         let t = particle.lifetime.fraction();
         transform.scale = Vec3::splat((1.0 - t).max(0.05));
-        if let Some(mat) = materials.get_mut(&mat_handle.0) {
+        if let Some(mut mat) = materials.get_mut(&mat_handle.0) {
             mat.base_color.set_alpha(1.0 - t);
         }
-        if particle.lifetime.finish() {
+        if particle.lifetime.is_finished() {
             commands.entity(entity).despawn();
         }
     }
