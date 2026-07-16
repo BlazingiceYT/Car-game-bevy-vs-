@@ -39,6 +39,7 @@ fn main() {
                 car::nitro_particle_spawn_system,
                 car::nitro_particle_update_system,
                 car::car_model_fallback_system,
+              world::map_model_fallback_system, 
                 camera::camera_follow_system,
                 hud::hud_bridge_system,
             )
